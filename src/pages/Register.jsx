@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../AuthProvider/AuthProvider"
 import useAuth from "../hooks/useAuth"
 import { useForm } from "react-hook-form"
@@ -14,11 +14,12 @@ const Register = () => {
     formState: { errors },
     } = useForm();
 
-    
+    const navigate = useNavigate();
 
     const onSubmit = (data)=>{
       CreateUser(data.email, data.password)
       console.log(user)
+      navigate("/");
     }
 
   return (
@@ -54,7 +55,7 @@ const Register = () => {
           />
           {errors.password?.type === "required" && ( 
           <p className="text-red-500 text-sm font-light">
-            Password is required
+            Eight length Password is required
           </p>)}
 
           {errors.password?.type === "minlength" && ( 
