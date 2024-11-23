@@ -86,9 +86,28 @@ const Register = () => {
             Both password must match
           </p>)}
         </div>
+
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Role</span>
+          </label>
+
+          <select className="select select-bordered w-full max-w-xs"
+          {...register("role", {required:true})}
+          >
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
+          </select>
+          {errors.role && ( 
+          <p className="text-red-500 text-sm font-light">
+            You must select a role
+          </p>)}
+
+        </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary" type="submit">Register</button>
         </div>
+
         <GoogleLogin/>
         <p className="my-4 text-sm font-light">
           Already have an account?{" "} 
