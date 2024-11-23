@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../AuthProvider/AuthProvider"
 import useAuth from "../hooks/useAuth"
 import { useForm } from "react-hook-form"
+import GoogleLogin from "../components/login-registration/GoogleLogin"
 
 const Register = () => {
   const { CreateUser } = useAuth();
@@ -88,6 +89,7 @@ const Register = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary" type="submit">Register</button>
         </div>
+        <GoogleLogin/>
         <p className="my-4 text-sm font-light">
           Already have an account?{" "} 
           <Link to="/login" className="text-primary">
